@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "81fac534-dd5b-47f6-9bd8-1b2d15c7f350",
+		"name": "HexSchool week 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20019429"
+	},
+	"item": [
+		{
+			"name": "取得所有文章",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://node-js-hexschool-week-3.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"node-js-hexschool-week-3",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增文章",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Angus\",\r\n    \"tags\":[\"電影\",\"旅遊\"],\r\n    \"type\":\"group\",\r\n    \"image\":\"http://dummyimage.com/197x100.png/dddddd/888888\",\r\n    \"content\":\"哈哈哈哈哈嘿嘿嘿\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://node-js-hexschool-week-3.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"node-js-hexschool-week-3",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除所有文章",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://node-js-hexschool-week-3.onrender.com/posts",
+					"protocol": "https",
+					"host": [
+						"node-js-hexschool-week-3",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除指定文章",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://node-js-hexschool-week-3.onrender.com/posts/663259c667abae707ff4cc3c",
+					"protocol": "https",
+					"host": [
+						"node-js-hexschool-week-3",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts",
+						"663259c667abae707ff4cc3c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "更新指定文章",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Tony Wuuuuuuuuu\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://node-js-hexschool-week-3.onrender.com/posts/6632574443a8b0ad1d984d5a",
+					"protocol": "https",
+					"host": [
+						"node-js-hexschool-week-3",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"posts",
+						"6632574443a8b0ad1d984d5a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
