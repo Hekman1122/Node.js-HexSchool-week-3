@@ -45,18 +45,17 @@ router.delete("/", async (req, res, next) => {
 //刪除指定文章
 router.delete("/:id", async (req, res, next) => {
   //檢查是否有該筆資料
-  const target = await Post.findById(req.params.id);
-  if (target) {
-    try {
+  let target;
+  try {
+    target = await Post.findById(req.params.id);
+    if (target) {
       const deletePost = await Post.findByIdAndDelete(req.params.id);
       res.json({
         message: "Delete article successfully.",
         data: deletePost,
       });
-    } catch (e) {
-      next(e);
     }
-  } else {
+  } catch (e) {
     res.status(404).json({
       message: "No such article.",
     });
@@ -66,20 +65,27 @@ router.delete("/:id", async (req, res, next) => {
 //更新指定文章
 router.patch("/:id", async (req, res, next) => {
   //檢查是否有該筆資料
-  const target = await Post.findById(req.params.id);
-  if (target) {
-    try {
-      const updatePost = await Post.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-      });
-      res.json({
-        message: "Update article successfully.",
-        data: updatePost,
-      });
-    } catch (e) {
-      next(e);
+  let target;
+  try {
+    target = await Post.findById(req.params.id);
+    if (target) {
+      try {
+        const updatePost = await Post.findByIdAndUpdate(
+          req.params.id,
+          req.body,
+          {
+            new: true,
+          }
+        );
+        res.json({
+          message: "Update article successfully.",
+          data: updatePost,
+        });
+      } catch (e) {
+        next(e);
+      }
     }
-  } else {
+  } catch (e) {
     res.status(404).json({
       message: "No such article.",
     });
