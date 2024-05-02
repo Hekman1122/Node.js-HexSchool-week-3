@@ -37,6 +37,14 @@ app.use((err, req, res, next) => {
   });
 });
 
+//catch all routes not found
+app.use("*", (err, req, res, next) => {
+  res.status(404).json({
+    status: "fail",
+    message: "找不到該頁面",
+  });
+});
+
 app.listen(process.env.PORT || 3000, () =>
   console.log("listening on port 3000...")
 );

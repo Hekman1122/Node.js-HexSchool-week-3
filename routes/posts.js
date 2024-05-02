@@ -45,6 +45,9 @@ router.delete("/", async (req, res, next) => {
 //刪除指定文章
 router.delete("/:id", async (req, res, next) => {
   //檢查是否有該筆資料
+  if (req.originalUrl === "/posts/") {
+    return next({ status: 404, message: "No such article." });
+  }
   let target;
   try {
     target = await Post.findById(req.params.id);
@@ -70,11 +73,15 @@ router.patch("/:id", async (req, res, next) => {
     target = await Post.findById(req.params.id);
     if (target) {
       try {
+        if (req.body.content) {
+          req.body.content = req.body.content.trim();
+        }
         const updatePost = await Post.findByIdAndUpdate(
           req.params.id,
           req.body,
           {
             new: true,
+            runValidators: true,
           }
         );
         res.json({
